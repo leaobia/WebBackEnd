@@ -64,23 +64,36 @@ entradaDados.question('Digite seu nome: \n', function (nome) {
                 entradaDados.question('Digite a nota 4: \n', function (nota4) {
                     let valor4 = nota4;
                     //let media = (parseFloat(valor1) + parseFloat(valor2) + parseFloat(valor3)+ parseFloat(valor4))/4;
-                    if(valor1 == '' || valor2 == '' || valor3 == '' || valor4 == ''){
+                    if (valor1 == '' || valor2 == '' || valor3 == '' || valor4 == '') {
                         console.log('Voce deixou entradas vazias')
-                
-                    } else if (
-                         isNaN(valor1) ||  isNaN(valor2) ||  isNaN(valor3) ||  isNaN(valor4)
-                        )
-                    {
-                        console.log('Você não digitou um número válido')
-                    }else{
-                        let media = (Number(valor1) + Number(valor2) + Number(valor3)+ Number(valor4))/4;
-                    }
-                
 
-                    //console.log(nome + nota1 + nota2 + nota3 + nota4);
-                   // console.log(nome, valor1 , valor2 , valor3 , valor4);
-                   // console.log('Essa é sua média: ' + media)
+                    } else if (
+                        isNaN(valor1) || isNaN(valor2) || isNaN(valor3) || isNaN(valor4)
+                    ) {
+                        console.log('Você não digitou um número')
+
+                    } else if (
+                        valor1 > 10 || valor2 > 10 || valor3 > 10 || valor4 > 10 || valor1 < 0 || valor2 < 0 || valor3 < 0 || valor4 < 0
+                    ) {
+                        console.log('Você não digitou um número válido')
+                    } 
+                
+                     else {
+                        let media = (Number(valor1) + Number(valor2) + Number(valor3) + Number(valor4)) / 4;
+                        if( media < 7){
+                            console.log('Status aluno: Reprovado')
+                        }else{
+                            console.log('Status aluno: Aprovado')
+                        }
+                         console.log('Essa é sua média: ' + media)
+                    } 
                    
+                    //console.log(nome + nota1 + nota2 + nota3 + nota4);
+                    // console.log(nome, valor1 , valor2 , valor3 , valor4);
+                    // console.log('Essa é sua média: ' + media)
+                     
+                     
+
                 });
             });
         });
