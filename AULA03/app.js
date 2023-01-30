@@ -47,7 +47,12 @@ entradaDados.question('Olá, bem vindo a calculadora bibis, qual operação dese
                 } else{
                     
                     let divisao = valorNumero1/valorNumero2;
-                    console.log(divisao)
+                    if ( valorNumero1 || valorNumero2){
+                        console.log('Todo número dividido por 0 é ele mesmo')
+                    }else{
+                        console.log(divisao) 
+                    }
+                    
                 }
             }
 
