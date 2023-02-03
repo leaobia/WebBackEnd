@@ -28,7 +28,6 @@ function Calculadora(numero1, numero2, tipoCalculo) {
         }
     } else {
         console.log('ERRO')
-        entradaDados.close();
     }
 
     if (resultado == undefined)

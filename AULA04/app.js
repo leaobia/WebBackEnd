@@ -33,6 +33,13 @@ entradaDados.question('Valor: \n', function (numero1) {
                 //typeof identifica o tipo de dado de um elemento o isNan identifica o tipo de conteúdo
             } else {
             }
+            resultado = matemática.Calculadora(valor1, valor2, operacao);
+            if(resultado != false){
+                console.log(resultado);
+            }else{
+                entradaDados.close();
+            }
+            
         });
     });
 });
