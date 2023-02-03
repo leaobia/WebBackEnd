@@ -9,32 +9,37 @@
 
 function Calculadora(numero1, numero2, tipoCalculo) {
 
-    let valor1 = numero1;
-    let valor2 = numero2;
-    let operacao = tipoCalculo;
+    let valor1 = Number(numero1);
+    let valor2 = Number(numero2);
+    let operacao = tipoCalculo.toUpperCase();
+    let resultado;
 
     if (operacao == 'SOMAR') {
-        resultado = Number(valor1) + Number(valor2);
+        resultado = valor1 + valor2;
     } else if (operacao == 'SUBTRAIR') {
-        resultado = Number(valor1) - Number(valor2);
+        resultado = valor1 - valor2;
     } else if (operacao == 'MULTIPLICAR') {
-        resultado = Number(valor1) * Number(valor2);
+        resultado = valor1 * valor2;
     } else if (operacao == 'DIVIDIR') {
         if (valor2 == 0) {
             console.log('Não foi possivel realizar o calculo')
         } else {
-            resultado = Number(valor1) / Number(valor2);
+            resultado = valor1 / valor2;
         }
     } else {
         console.log('ERRO')
         entradaDados.close();
     }
 
-    if (resultado == undefined) {
-        console.log('erro')
-    } else {
-        console.log(resultado)
-        entradaDados.close();
-    }
-    return
+    if (resultado == undefined)
+        return false;
+    else
+        return resultado;
+}
+
+// Permite adicionar uma function no escopo global (public)
+// As functions que não estão no export serão tratadas como escopo local (private)
+
+module.exports = {
+    Calculadora
 }
