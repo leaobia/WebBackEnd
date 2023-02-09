@@ -6,6 +6,7 @@
  * ****************************************/
 
 // Tudo que faço numa função entra como argumento
+// Forma 01 de se criar uma função(tradicional)
 
 function Calculadora(numero1, numero2, tipoCalculo) {
 
@@ -35,20 +36,20 @@ function Calculadora(numero1, numero2, tipoCalculo) {
 
     switch (operacao) {
         case 'SOMAR':
-            resultado = valor1 - valor2;
+            resultado = SOMAR(valor1,valor2);
             break;
         case 'SUBTRAIR':
-            resultado = valor1 - valor2;
+            resultado = SUBTRAIR(valor1,valor2);
             break;
         case 'MULTIPLICAR':
-            resultado = valor1 * valor2;
+            resultado = MULTIPLICAR(valor1,valor2);
             break;
         case 'DIVIDIR':
             if (valor2 == 0) {
                 console.log('Não foi possivel realizar o calculo')
                 status = false;
             } else {
-                resultado = valor1 / valor2;
+                resultado = DIVIDIR(valor1,valor2);
             }
             break;
         default:
@@ -61,6 +62,17 @@ function Calculadora(numero1, numero2, tipoCalculo) {
     else
         return resultado;
 }
+// Forma 02 de se criar uma função (hoje é uma das mais utilizadas)
+
+//const calculadora = function(){}
+
+
+// Forma 03 de se criar uma função
+
+const SOMAR = (valor1,valor2) => valor1 + valor2;
+const SUBTRAIR = (valor1,valor2) => valor1 - valor2;
+const MULTIPLICAR = (valor1,valor2) => valor1 * valor2;
+const DIVIDIR = (valor1,valor2) => valor1 / valor2;
 
 // Permite adicionar uma function no escopo global (public)
 // As functions que não estão no export serão tratadas como escopo local (private)
