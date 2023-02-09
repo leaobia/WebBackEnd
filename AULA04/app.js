@@ -34,12 +34,13 @@ entradaDados.question('Valor: \n', function (numero1) {
             } else {
             }
             resultado = matemática.Calculadora(valor1, valor2, operacao);
-            if(resultado != false){
-                console.log(resultado);
-            }else{
+            // if(resultado == false && typeof(resultado) == 'boolean') 
+            if(resultado === 'boolean') {
                 entradaDados.close();
+            }else {
+                console.log(resultado);
             }
-            
+
         });
     });
 });

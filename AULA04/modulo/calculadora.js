@@ -13,6 +13,7 @@ function Calculadora(numero1, numero2, tipoCalculo) {
     let valor2 = Number(numero2);
     let operacao = tipoCalculo.toUpperCase();
     let resultado;
+    let status = true;
 
     if (operacao == 'SOMAR') {
         resultado = valor1 + valor2;
@@ -23,14 +24,16 @@ function Calculadora(numero1, numero2, tipoCalculo) {
     } else if (operacao == 'DIVIDIR') {
         if (valor2 == 0) {
             console.log('Não foi possivel realizar o calculo')
+            status = false;
         } else {
             resultado = valor1 / valor2;
         }
     } else {
         console.log('ERRO')
+        status = false;
     }
 
-    if (resultado == undefined)
+    if (resultado == undefined && status == false)
         return false;
     else
         return resultado;
