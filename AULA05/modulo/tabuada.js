@@ -12,7 +12,7 @@ const calcularTabuada = function (multiplicando, maxMultiplicador) {
     let maxContador = Number(String(maxMultiplicador).replace(',', '.'));
     let status = true;
     let cont = 0;
-    let resultado = tabuada * cont;
+    let resultado;
 
     if (tabuada == 0 || maxContador == 0)
         status = false;
@@ -20,17 +20,17 @@ const calcularTabuada = function (multiplicando, maxMultiplicador) {
         status = false;
     else {
         while (cont <= maxContador) {
+            resultado = tabuada * cont;
             console.log(tabuada +'x'+ cont + '=' + resultado);
             //cont = cont + 1;
-            //cont++;
-            cont += 1;
+            cont++;
+            //cont += 1;
         }
     }
     return status;
 };
 
-//calcularTabuada(2,10);
-calcularTabuada()
+calcularTabuada(2,10);
 
 module.exports = {
     calcularTabuada
