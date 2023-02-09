@@ -15,22 +15,45 @@ function Calculadora(numero1, numero2, tipoCalculo) {
     let resultado;
     let status = true;
 
-    if (operacao == 'SOMAR') {
-        resultado = valor1 + valor2;
-    } else if (operacao == 'SUBTRAIR') {
-        resultado = valor1 - valor2;
-    } else if (operacao == 'MULTIPLICAR') {
-        resultado = valor1 * valor2;
-    } else if (operacao == 'DIVIDIR') {
-        if (valor2 == 0) {
-            console.log('Não foi possivel realizar o calculo')
+    /* if (operacao == 'SOMAR') {
+         resultado = valor1 + valor2;
+     } else if (operacao == 'SUBTRAIR') {
+         resultado = valor1 - valor2;
+     } else if (operacao == 'MULTIPLICAR') {
+         resultado = valor1 * valor2;
+     } else if (operacao == 'DIVIDIR') {
+         if (valor2 == 0) {
+             console.log('Não foi possivel realizar o calculo')
+             status = false;
+         } else {
+             resultado = valor1 / valor2;
+         }
+     } else {
+         console.log('ERRO')
+         status = false;
+     }*/
+
+    switch (operacao) {
+        case 'SOMAR':
+            resultado = valor1 - valor2;
+            break;
+        case 'SUBTRAIR':
+            resultado = valor1 - valor2;
+            break;
+        case 'MULTIPLICAR':
+            resultado = valor1 * valor2;
+            break;
+        case 'DIVIDIR':
+            if (valor2 == 0) {
+                console.log('Não foi possivel realizar o calculo')
+                status = false;
+            } else {
+                resultado = valor1 / valor2;
+            }
+            break;
+        default:
+            console.log('ERRO')
             status = false;
-        } else {
-            resultado = valor1 / valor2;
-        }
-    } else {
-        console.log('ERRO')
-        status = false;
     }
 
     if (resultado == undefined && status == false)
