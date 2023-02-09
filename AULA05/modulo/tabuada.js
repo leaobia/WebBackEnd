@@ -30,7 +30,7 @@ const calcularTabuada = function (multiplicando, maxMultiplicador) {
     return status;
 };
 
-calcularTabuada(2,10);
+//calcularTabuada(2,10);
 
 module.exports = {
     calcularTabuada
