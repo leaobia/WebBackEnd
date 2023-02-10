@@ -16,46 +16,44 @@ var entradaDados = readline.createInterface({
     output: process.stdout
 });
 
-entradaDados.question('Olá, bem vindo a calculadora bibis, qual operação deseja realizar? \n 1 - Somar \n 2 - Subtrair \n 3 - Multiplicar \n 4 - Dividir \n', function(operacãoType){
+entradaDados.question('Olá, bem vindo a calculadora bibis, qual operação deseja realizar? \n 1 - Somar \n 2 - Subtrair \n 3 - Multiplicar \n 4 - Dividir \n', function (operacãoType) {
     // função callback para saber operação
     let nomeOperacao = operacãoType;
     // função callback para escolher o número 1
-    entradaDados.question('Digite o primeiro número \n', function(numero1){
-        let valorNumero1 = numero1.replace(',','.');
+    entradaDados.question('Digite o primeiro número \n', function (numero1) {
+        let valorNumero1 = numero1.replace(',', '.');
         // função callback para escolher número 2
-        entradaDados.question('Digite o segundo número \n', function(numero2){
-            let valorNumero2 = numero2.replace(',','.');
-            if ( nomeOperacao == '' || valorNumero1  == '' || valorNumero2 == '' ) {
+        entradaDados.question('Digite o segundo número \n', function (numero2) {
+            let valorNumero2 = numero2.replace(',', '.');
+            if (nomeOperacao == '' || valorNumero1 == '' || valorNumero2 == '') {
                 console.log('Voce deixou entradas vazias')
-            }else if (
-                isNaN(nomeOperacao) || isNaN(valorNumero1) || isNaN(valorNumero2) 
+            } else if (
+                isNaN(nomeOperacao) || isNaN(valorNumero1) || isNaN(valorNumero2)
             ) {
                 console.log('Você não digitou um número')
 
-            } else{
-                if (nomeOperacao == 1){
-    
-                      let soma = Number(valorNumero1) + Number (valorNumero2)
-                      console.log(soma)
-                      
-                } else if(nomeOperacao == 2){
+            } else {
+                if (nomeOperacao == 1) {
+
+                    let soma = Number(valorNumero1) + Number(valorNumero2)
+                    console.log(soma)
+
+                } else if (nomeOperacao == 2) {
                     let subtracao = valorNumero1 - valorNumero2;
                     console.log(subtracao)
-                } else if (nomeOperacao == 3){
+                } else if (nomeOperacao == 3) {
                     let multiplicacao = valorNumero1 * valorNumero2;
                     console.log(multiplicacao)
-                } else{
-                    
-                    let divisao = valorNumero1/valorNumero2;
-                    if ( valorNumero2 == 0){
+                } else {
+
+                    let divisao = valorNumero1 / valorNumero2;
+                    if (valorNumero2 == 0) {
                         console.log('Todo número dividido por 0 é ele mesmo')
-                    }else{
-                        console.log(divisao) 
+                    } else {
+                        console.log(divisao)
                     }
-                    
                 }
             }
-
         });
     });
 });

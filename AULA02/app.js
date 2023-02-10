@@ -85,7 +85,7 @@ entradaDados.question('Digite seu nome: \n', function (nome) {
                         }else{
                             console.log('Status aluno: Aprovado')
                         }
-                         console.log('Essa é sua média: ' + media)
+                         console.log('Essa é sua média: ' + media.toFixed(1))
                     } 
                    
                     //console.log(nome + nota1 + nota2 + nota3 + nota4);
