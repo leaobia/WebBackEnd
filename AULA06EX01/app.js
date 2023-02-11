@@ -30,24 +30,24 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
 
                 entradaDados.question('Digite o nome do seu professor:[MARCEL | LEONID | CELSO | BIANCA] \n', function (professor) {
                     let professorDoAluno = professor.toUpperCase();
-
-                    if(professorDoAluno == 'MARCEL' | 'LEONID' | 'CELSO'){
-                        let generoProf = 'MASCULINO'
+                    let generoProf;
+                    if (professorDoAluno == 'MARCEL' | 'LEONID' | 'CELSO') {
+                        generoProf = 'MASCULINO'
                         mediaNotas.coletarDados(generoProf)
-                    }else{
-                        let generoProf = 'FEMININO'
+                    } else {
+                        generoProf = 'FEMININO'
                         mediaNotas.coletarDados(generoProf)
                     }
 
                     entradaDados.question('Digite seu genero: [MASCULINO | FEMININO]\n', function (sexo) {
                         let genero = sexo.toUpperCase();
 
-                        if(genero == 'MASCULINO'){
+                        if (genero == 'MASCULINO') {
                             mediaNotas.coletarDados(genero)
-                        }else if(genero == 'FEMININO'){
+                        } else if (genero == 'FEMININO') {
                             mediaNotas.coletarDados(genero)
-                        }else{
-                            
+                        } else {
+
                             entradaDados.close();
                         }
 
@@ -71,40 +71,85 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                                         //console.log(media)
 
 
-                                        if (media[0] == 'Aprovado') {
-                                            console.log('O aluno ' + nomeAluno + ' foi aprovado na disciplina ' + disciplina+'.\n' + 
-                                            'Curso: ' + curso + '\n' +
-                                            'Professor: ' + professor + '\n' +
-                                            'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4 + '\n' +
-                                            'Média final: ' + resultado
+                                        if (media[0] == 'Aprovado' && genero == 'MASCULINO' && generoProf == 'MASCULINO') {
+                                            console.log('O aluno ' + nomeAluno + ' foi aprovado na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                'Curso: ' + cursoDoAluno + '\n' +
+                                                'Professor: ' + professorDoAluno + '\n' +
+                                                'Notas do aluno: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + '\n' +
+                                                'Média final: ' + resultado
                                             )
-                                        } else if (media[0] == 'Reprovado') {
-                                            console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplina+'.\n' + 
-                                            'Curso: ' + curso + '\n' +
-                                            'Professor: ' + professor + '\n' +
-                                            'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4 + '\n' +
-                                            'Média final: ' + resultado)
+                                        }
+                                        else if (media[0] == 'Aprovado' && genero == 'FEMININO' && generoProf == 'MASCULINO') {
+                                            console.log('A aluna ' + nomeAluno + ' foi aprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                'Curso: ' + cursoDoAluno + '\n' +
+                                                'Professor: ' + professorDoAluno + '\n' +
+                                                'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + '\n' +
+                                                'Média final: ' + resultado
+                                            )
+                                        }
+                                        else if (media[0] == 'Aprovado' && genero == 'FEMININO' && generoProf == 'FEMININO') {
+                                            console.log('A aluna ' + nomeAluno + ' foi aprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                'Curso: ' + cursoDoAluno + '\n' +
+                                                'Professora: ' + professorDoAluno + '\n' +
+                                                'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + '\n' +
+                                                'Média final: ' + resultado
+                                            )
+                                        } else if (media[0] == 'Reprovado' && genero == 'MASCULINO' && generoProf == 'MASCULINO') {
+                                            console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                'Curso: ' + cursoDoAluno + '\n' +
+                                                'Professor: ' + professorDoAluno + '\n' +
+                                                'Notas do aluno: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + '\n' +
+                                                'Média final: ' + resultado)}
+                                                else if(media[0] == 'Reprovado' && genero == 'FEMININO' && generoProf == 'MASCULINO'){
+                                                    console.log('A aluna ' + nomeAluno + ' foi reprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                    'Curso: ' + cursoDoAluno + '\n' +
+                                                    'Professor: ' + professorDoAluno + '\n' +
+                                                    'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + '\n' +
+                                                    'Média final: ' + resultado
+                                                )} else if(media[0] == 'Reprovado' && genero == 'FEMININO' && generoProf == 'FEMININO'){
+                                                    console.log('A aluna ' + nomeAluno + ' foi reprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                'Curso: ' + cursoDoAluno + '\n' +
+                                                'Professora: ' + professorDoAluno + '\n' +
+                                                'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + '\n' +
+                                                'Média final: ' + resultado
+                                            )
                                         } else {
                                             entradaDados.question('Digite a nota do exame: \n', function (notaExame) {
                                                 let notaDoExame = notaExame;
 
                                                 let mediaDoExame = mediaNotas.exameNota(resultado, notaDoExame)
 
-                                                if(mediaDoExame[0] == 'Aprovado'){
-                                                    console.log('O aluno ' + nomeAluno + ' foi aprovado na disciplina ' + disciplina+'.\n' + 
-                                                    'Curso: ' + curso + '\n' +
-                                                    'Professor: ' + professor + '\n' +
-                                                    'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4  + notaDoExame + '\n' +
-                                                    'Média final: ' + resultado + '\n' +
-                                                    'Média do Exame: ' + mediaDoExame[2]
+                                                if (mediaDoExame[0] == 'Aprovado' && genero == 'MASCULINO' && generoProf == 'MASCULINO') {
+                                                    console.log('O aluno ' + nomeAluno + ' foi aprovado na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                        'Curso: ' + cursoDoAluno + '\n' +
+                                                        'Professor: ' + professorDoAluno + '\n' +
+                                                        'Notas do aluno: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + ',' +notaDoExame + '\n' +
+                                                        'Média final: ' + resultado + '\n' +
+                                                        'Média do Exame: ' + mediaDoExame[2]
+                                                    )}
+                                                    else if(mediaDoExame[0] == 'Aprovado' && genero == 'FEMININO' && generoProf == 'MASCULINO'){
+                                                        console.log('A aluna ' + nomeAluno + ' foi aprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                        'Curso: ' + cursoDoAluno + '\n' +
+                                                        'Professor: ' + professorDoAluno + '\n' +
+                                                        'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + ',' + notaDoExame + '\n' +
+                                                        'Média final: ' + resultado + '\n' +
+                                                        'Média do Exame: ' + mediaDoExame[2]
+                                                    )}
+                                                    else if(mediaDoExame[0] == 'Aprovado' && genero == 'FEMININO' && generoProf == 'FEMININO'){
+                                                        console.log('A aluna ' + nomeAluno + ' foi aprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                        'Curso: ' + cursoDoAluno + '\n' +
+                                                        'Professora: ' + professorDoAluno + '\n' +
+                                                        'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + ',' + notaDoExame + '\n' +
+                                                        'Média final: ' + resultado + '\n' +
+                                                        'Média do Exame: ' + mediaDoExame[2]
                                                     )
-                                                }else{
-                                                    console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplina+'.\n' + 
-                                                    'Curso: ' + curso + '\n' +
-                                                    'Professor: ' + professor + '\n' +
-                                                    'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4  + notaDoExame  + '\n'+
-                                                    'Média final: ' + resultado + '\n' +
-                                                    'Média do Exame: ' + mediaDoExame[2]
+                                                } else {
+                                                    console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                        'Curso: ' + cursoDoAluno + '\n' +
+                                                        'Professor: ' + professorDoAluno + '\n' +
+                                                        'Notas do aluno: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + notaDoExame + '\n' +
+                                                        'Média final: ' + resultado + '\n' +
+                                                        'Média do Exame: ' + mediaDoExame[2]
                                                     )
                                                 }
                                             })
