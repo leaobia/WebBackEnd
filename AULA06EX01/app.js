@@ -34,9 +34,12 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                     if (professorDoAluno == 'MARCEL' | 'LEONID' | 'CELSO') {
                         generoProf = 'MASCULINO'
                         mediaNotas.coletarDados(generoProf)
-                    } else {
+                    } else if (professorDoAluno == 'BIANCA' ){
                         generoProf = 'FEMININO'
                         mediaNotas.coletarDados(generoProf)
+                    }else{
+                        console.log('Professor não disponivel, verifique se digitou corretamente')
+                        entradaDados.close();
                     }
 
                     entradaDados.question('Digite seu genero: [MASCULINO | FEMININO]\n', function (sexo) {
@@ -47,7 +50,7 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                         } else if (genero == 'FEMININO') {
                             mediaNotas.coletarDados(genero)
                         } else {
-
+                            console.log('Genero não disponivel, verifique se digitou corretamente')
                             entradaDados.close();
                         }
 
@@ -67,8 +70,6 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
 
                                         let resultado = media[1]
 
-
-                                        //console.log(media)
 
 
                                         if (media[0] == 'Aprovado' && genero == 'MASCULINO' && generoProf == 'MASCULINO') {
@@ -143,7 +144,7 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                                                         'Média final: ' + resultado + '\n' +
                                                         'Média do Exame: ' + mediaDoExame[2]
                                                     )
-                                                } else {
+                                                } else if(mediaDoExame[0] == 'Reprovado' && genero == 'MASCULINO' && generoProf == 'MASCULINO') {
                                                     console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplinaDoAluno + '.\n' +
                                                         'Curso: ' + cursoDoAluno + '\n' +
                                                         'Professor: ' + professorDoAluno + '\n' +
@@ -151,6 +152,22 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                                                         'Média final: ' + resultado + '\n' +
                                                         'Média do Exame: ' + mediaDoExame[2]
                                                     )
+                                                } else if(mediaDoExame[0] == 'Reprovado' && genero == 'FEMININO' && generoProf == 'MASCULINO'){
+                                                    console.log('A aluna ' + nomeAluno + ' foi reprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                        'Curso: ' + cursoDoAluno + '\n' +
+                                                        'Professor: ' + professorDoAluno + '\n' +
+                                                        'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + ',' + notaDoExame + '\n' +
+                                                        'Média final: ' + resultado + '\n' +
+                                                        'Média do Exame: ' + mediaDoExame[2]
+                                                    )
+                                                }else if(mediaDoExame[0] == 'Reprovado' && genero == 'FEMININO' && generoProf == 'FEMININO'){
+                                                    console.log('A aluna ' + nomeAluno + ' foi reprovada na disciplina ' + disciplinaDoAluno + '.\n' +
+                                                    'Curso: ' + cursoDoAluno + '\n' +
+                                                    'Professora: ' + professorDoAluno + '\n' +
+                                                    'Notas da aluna: ' + valor1 + ',' + valor2 + ',' + valor3 + ',' + valor4 + ',' + notaDoExame + '\n' +
+                                                    'Média final: ' + resultado + '\n' +
+                                                    'Média do Exame: ' + mediaDoExame[2]
+                                                )
                                                 }
                                             })
                                         }

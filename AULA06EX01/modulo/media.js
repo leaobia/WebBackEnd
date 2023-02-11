@@ -6,7 +6,6 @@
  ******************************************************/
 
 const { getEnvironmentData } = require("worker_threads");
-//const resultado = (Number(valor1) + Number(valor2) + Number(valor3) + Number(valor4)) / 4
 
 const calcularMedia = function (nota1, nota2, nota3, nota4) {
     let valor1 = Number(String(nota1).replace(',', '.'));
@@ -27,17 +26,12 @@ const calcularMedia = function (nota1, nota2, nota3, nota4) {
     } else {
         if (resultado >= 70) {
             statusAluno = 'Aprovado'
-            // console.log('Aprovado de 1')
         } else if (resultado < 50) {
             statusAluno = 'Reprovado'
         } else {
             statusAluno = 'Exame'
         }
 
-        //console.log('Reprovado de 1')
-
-       // console.log(resultado)
-        //console.log(statusAluno)
         return [statusAluno , resultado]
     }
 }
@@ -57,8 +51,7 @@ const exameNota = function (resultado, notaExame) {
     } else {
         statusAluno = 'Reprovado'
     }
-   // console.log(resultado)
-    //console.log(statusAluno)
+
     return [statusAluno , resultado, mediaExame]
 }
 
@@ -69,21 +62,15 @@ const coletarDados = function (sexo) {
     let status = true;
 
     if (genero == 'FEMININO') {
-        // console.log('Feminino')
+
     } else if (genero == 'MASCULINO') {
-        //console.log('masculino')
+
     } else {
-         console.log('não é um genero disponivel')
          status = false;
     }
-    //console.log('O genero escolhido é:' + genero)
+
     return genero
 }
-
-//calcularMedia(30,70,60,90,60)
-
-//coletarDados('FeMinIno')
-
 
 module.exports = {
     calcularMedia,
