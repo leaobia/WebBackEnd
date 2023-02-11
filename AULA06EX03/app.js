@@ -26,19 +26,12 @@ entradaDados.question('Valor inicial: \n', function (numeroInicial) {
             let operacao = escolhaDeModo.toUpperCase();
             let resultado;
 
-            if (valor1 == '' || valor2 == '' || operacao == '') {
-                console.log('ERRO: Não é possivel calcular se algum dado estiver vazio')
-            } else if (isNaN(valor1) || isNaN(valor2)) {
-                console.log('ERRO: Não é possível calcular se os dados digitados não forem números')
-            } else {
-            }
-            resultado = matematica.calculoParImpar(valor1,valor2,operacao)
-            // if(resultado == false && typeof(resultado) == 'boolean') 
-            if(resultado === 'boolean') {
-                entradaDados.close();
-            }else {
+            resultado = matematica.calculoParImpar(valor1,valor2,operacao) 
+
                 console.log(resultado);
-            }
+
+                entradaDados.close();
+            
         });
     });
 });
