@@ -15,6 +15,8 @@ const calculoParImpar = function (numeroInicial, numeroFinal, escolhaDeModo) {
 
     let status = true;
 
+    let resultadoPar;
+
     if (valor1 == 0 || valor2 == 0)
 
         status = false;
@@ -33,7 +35,7 @@ const calculoParImpar = function (numeroInicial, numeroFinal, escolhaDeModo) {
         status = false
     else {
 
-        if (escolha == 'PAR' || escolha == 'AMBOS') {
+     if (escolha == 'PAR' || escolha == 'AMBOS') {
 
             console.log('\nLista de Números Pares');
 
@@ -78,9 +80,10 @@ const calculoParImpar = function (numeroInicial, numeroFinal, escolhaDeModo) {
         }
 
     }
-
-    return status;
-
+    return  status;
 }
 
-calculoParImpar(15, 15, 'AMBOS');
+module.exports = {
+   calculoParImpar
+}
+//calculoParImpar(5, 18, 'AMBOS');
