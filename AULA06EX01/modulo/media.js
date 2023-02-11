@@ -36,32 +36,27 @@ const calcularMedia = function (nota1, nota2, nota3, nota4) {
 
         //console.log('Reprovado de 1')
 
-        console.log(resultado)
-        console.log(statusAluno)
-        return statusAluno
+       // console.log(resultado)
+        //console.log(statusAluno)
+        return [statusAluno , resultado]
     }
 }
 
-const exameNota = function (nota1, nota2, nota3, nota4, notaExame) {
-    let valor1 = Number(String(nota1).replace(',', '.'));
-    let valor2 = Number(String(nota2).replace(',', '.'));
-    let valor3 = Number(String(nota3).replace(',', '.'));
-    let valor4 = Number(String(nota4).replace(',', '.'));
-    valorExame = notaExame;
-    const resultado = (Number(valor1) + Number(valor2) + Number(valor3) + Number(valor4)) / 4
+const exameNota = function (resultado, notaExame) {
+
+    valorExame = Number(String(notaExame).replace(',', '.'));
+    resultado = Number(String(resultado).replace(',', '.'));
+   
     let statusAluno;
 
-    if (resultado >= 60 && valorExame >= 60) {
+    if ((resultado + valorExame)/2 >= 60) {
         statusAluno = 'Aprovado'
-        console.log('Aprovado pelo exame')
     } else {
         statusAluno = 'Reprovado'
-        console.log('Reprovado pelo exame')
     }
-    console.log(resultado)
-    console.log(statusAluno)
-    return statusAluno
-
+   // console.log(resultado)
+    //console.log(statusAluno)
+    return [statusAluno , resultado]
 }
 
 
@@ -76,6 +71,7 @@ const coletarDados = function (sexo) {
     } else {
         // console.log('não é um genero disponivel')
     }
+    return sexoAluno
 }
 
 //calcularMedia(30,70,60,90,60)
