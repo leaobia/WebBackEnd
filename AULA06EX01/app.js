@@ -79,7 +79,11 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                                             'Média final: ' + resultado
                                             )
                                         } else if (media[0] == 'Reprovado') {
-                                            console.log('Reprovado de primeira')
+                                            console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplina+'.\n' + 
+                                            'Curso: ' + curso + '\n' +
+                                            'Professor: ' + professor + '\n' +
+                                            'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4 + '\n' +
+                                            'Média final: ' + resultado)
                                         } else {
                                             entradaDados.question('Digite a nota do exame: \n', function (notaExame) {
                                                 let notaDoExame = notaExame;
@@ -87,9 +91,21 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                                                 let mediaDoExame = mediaNotas.exameNota(resultado, notaDoExame)
 
                                                 if(mediaDoExame[0] == 'Aprovado'){
-                                                    console.log('Aprovado pelo exame')
+                                                    console.log('O aluno ' + nomeAluno + ' foi aprovado na disciplina ' + disciplina+'.\n' + 
+                                                    'Curso: ' + curso + '\n' +
+                                                    'Professor: ' + professor + '\n' +
+                                                    'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4  + notaDoExame + '\n' +
+                                                    'Média final: ' + resultado + '\n' +
+                                                    'Média do Exame: ' + mediaDoExame[2]
+                                                    )
                                                 }else{
-                                                    console.log('Reprovado pelo exame')
+                                                    console.log('O aluno ' + nomeAluno + ' foi reprovado na disciplina ' + disciplina+'.\n' + 
+                                                    'Curso: ' + curso + '\n' +
+                                                    'Professor: ' + professor + '\n' +
+                                                    'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4  + notaDoExame  + '\n'+
+                                                    'Média final: ' + resultado + '\n' +
+                                                    'Média do Exame: ' + mediaDoExame[2]
+                                                    )
                                                 }
                                             })
                                         }

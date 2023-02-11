@@ -48,15 +48,18 @@ const exameNota = function (resultado, notaExame) {
     resultado = Number(String(resultado).replace(',', '.'));
    
     let statusAluno;
+    let mediaExame;
 
-    if ((resultado + valorExame)/2 >= 60) {
+    mediaExame = (resultado + valorExame)/2 
+
+    if (mediaExame >= 60) {
         statusAluno = 'Aprovado'
     } else {
         statusAluno = 'Reprovado'
     }
    // console.log(resultado)
     //console.log(statusAluno)
-    return [statusAluno , resultado]
+    return [statusAluno , resultado, mediaExame]
 }
 
 
