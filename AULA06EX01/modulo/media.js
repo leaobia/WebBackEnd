@@ -62,16 +62,19 @@ const exameNota = function (resultado, notaExame) {
 
 
 const coletarDados = function (sexo) {
-    let sexoAluno = sexo.toString().toUpperCase();
+    let genero = sexo.toString().toUpperCase();
+    let status = true;
 
-    if (sexoAluno == 'FEMININO') {
+    if (genero == 'FEMININO') {
         // console.log('Feminino')
-    } else if (sexoAluno == 'MASCULINO') {
-        console.log('masculino')
+    } else if (genero == 'MASCULINO') {
+        //console.log('masculino')
     } else {
-        // console.log('não é um genero disponivel')
+         console.log('não é um genero disponivel')
+         status = false;
     }
-    return sexoAluno
+    //console.log('O genero escolhido é:' + genero)
+    return genero
 }
 
 //calcularMedia(30,70,60,90,60)

@@ -28,11 +28,28 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
             entradaDados.question('Digite seu curso: \n', function (curso) {
                 let cursoDoAluno = curso;
 
-                entradaDados.question('Digite o nome do seu professor: \n', function (professor) {
-                    let professorDoAluno = professor;
+                entradaDados.question('Digite o nome do seu professor:[MARCEL | LEONID | CELSO | BIANCA] \n', function (professor) {
+                    let professorDoAluno = professor.toUpperCase();
 
-                    entradaDados.question('Digite seu genero: \n', function (sexo) {
-                        let sexoAluno = mediaNotas.coletarDados(sexo);
+                    if(professorDoAluno == 'MARCEL' | 'LEONID' | 'CELSO'){
+                        let generoProf = 'MASCULINO'
+                        mediaNotas.coletarDados(generoProf)
+                    }else{
+                        let generoProf = 'FEMININO'
+                        mediaNotas.coletarDados(generoProf)
+                    }
+
+                    entradaDados.question('Digite seu genero: [MASCULINO | FEMININO]\n', function (sexo) {
+                        let genero = sexo.toUpperCase();
+
+                        if(genero == 'MASCULINO'){
+                            mediaNotas.coletarDados(genero)
+                        }else if(genero == 'FEMININO'){
+                            mediaNotas.coletarDados(genero)
+                        }else{
+                            
+                            entradaDados.close();
+                        }
 
                         entradaDados.question('Digite sua nota 1: \n', function (nota1) {
                             let valor1 = nota1;
@@ -51,11 +68,16 @@ entradaDados.question('Digite seu nome: \n', function (nomeDoAluno) {
                                         let resultado = media[1]
 
 
-                                        console.log(media)
+                                        //console.log(media)
 
 
                                         if (media[0] == 'Aprovado') {
-                                            console.log('Aprovado de primeira')
+                                            console.log('O aluno ' + nomeAluno + ' foi aprovado na disciplina ' + disciplina+'.\n' + 
+                                            'Curso: ' + curso + '\n' +
+                                            'Professor: ' + professor + '\n' +
+                                            'Notas do aluno: ' + valor1 +','+ valor2 +','+ valor3 +',' + valor4 + '\n' +
+                                            'Média final: ' + resultado
+                                            )
                                         } else if (media[0] == 'Reprovado') {
                                             console.log('Reprovado de primeira')
                                         } else {
