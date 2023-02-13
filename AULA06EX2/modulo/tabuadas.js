@@ -34,7 +34,7 @@ const calcularTabuada = function (minMultiplicando, maxMultiplicando, minMultipl
     return status;
 };
 
-calcularTabuada(2,10,5,12)
+//calcularTabuada(2,10,5,12)
 
 module.exports = {
     calcularTabuada
