@@ -8,16 +8,19 @@ const calcularTabuada = function (minMultiplicando, maxMultiplicando, minMultipl
     let resultado;
 
     if (tabuada1 == 0 || tabuada2 == 0 || maxContador == 0 || minContador == 0) {
-        console.log('ERRO 01')
+        console.log('Não aceita entradas vazias e nem 0')
         status = false;
     } else if (isNaN(tabuada1) || isNaN(maxContador)) {
-        console.log('ERRO 02')
+        console.log('Somente números')
         status = false;
     } else if (tabuada1 > tabuada2 || minContador > maxContador) {
-        console.log('ERRO 03')
+        console.log('O minimo deve ser menor que o máximo')
         status = false;
-    } else if (tabuada1 < 2 || tabuada1 > 50 || tabuada2 < 2 || tabuada2 > 50) {
-        console.log('ERRO 04')
+    } else if (tabuada1 < 2 || tabuada1 > 100 || tabuada2 < 2 || tabuada2 > 100) {
+        console.log('Os multiplicandos devem ser entre 2 e 100')
+        status = false;
+    } else if(minContador < 0 || minContador > 50 || maxContador < 0 || maxContador > 50){
+        console.log('Os multiplicadores devem ser entre 1 e 50')
         status = false;
     } else {
         while (tabuada1 <= tabuada2) {
