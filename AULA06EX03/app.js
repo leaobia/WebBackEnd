@@ -24,9 +24,12 @@ entradaDados.question('Valor inicial: \n', function (numeroInicial) {
 
         entradaDados.question('Operação: [PAR | IMPAR | AMBOS] \n', function (escolhaDeModo) {
             let operacao = escolhaDeModo.toUpperCase();
+            let escolhaDeModo2 = operacao.replace('Í','I');
+            let escolhaDeModo3 = escolhaDeModo2.replace('IMPARES','IMPAR')
+            let escolhaDeModo4 = escolhaDeModo3.replace('PARES','PAR')
             let resultado;
 
-            resultado = matematica.calculoParImpar(valor1,valor2,operacao) 
+            resultado = matematica.calculoParImpar(valor1,valor2,escolhaDeModo4) 
 
                 console.log(resultado);
 
