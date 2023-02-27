@@ -142,28 +142,195 @@ const removerProdutos = function (nomeProduto) {
 
 // A função remover itens retorna uma lista com os itens que sobraram
 
-const removerItens = function (nomeProduto, array) {
+// const removerItens = function (nomeProduto, array) {
 
-    let nome = nomeProduto;
-    let status;
-    let arrayLista = array;
+//     let nome = nomeProduto;
+//     let status;
+//     let arrayLista = array;
 
-    const novosProdutos = arrayLista.slice()
-    let indice = novosProdutos.indexOf(nome);
+//     const novosProdutos = arrayLista.slice()
+//     let indice = novosProdutos.indexOf(nome);
+
+//     if (indice >= 0) {
+//       novosProdutos.splice(indice,1)
+//       status = true;
+//       console.log('Essa é a lista oficial',listaProdutos)
+//       console.log('Essa é a nova lista',novosProdutos)
+//     } else {
+//         status = false;
+//         console.log('Não foi encontrado esse item, logo, não foi removido')
+//     }
+//     return status
+// }
+
+// removerItens('Mouse', listaProdutos)
+
+
+const removerItem = function (array, nomeItem) {
+
+    //Entrada
+    let nome = nomeItem
+    let novoArray = array.slice()
+    let indice = novoArray.indexOf(nome)
+    let status
+    // Processamento
 
     if (indice >= 0) {
-      novosProdutos.splice(indice,1)
-      status = true;
-      console.log('Essa é a lista oficial',listaProdutos)
-      console.log('Essa é a nova lista',novosProdutos)
+        novoArray.splice(indice, 1)
+        status = true
     } else {
-        status = false;
-        console.log('Não foi encontrado esse item, logo, não foi removido')
+        status = false
     }
-    return status
+
+    // Saída
+
+    if (status) {
+        return novoArray
+    } else {
+        return false
+    }
+
 }
 
-removerItens('Mouse', listaProdutos)
+const listagemProdutos = function () {
+    // forma numero 1 de crir um JSON
+    //let listProdutosJSON = {produtos : listaProdutos, clientes : listaNomes }
+
+    // forma numero 2 de crir um JSON
+    //let listProdutosJSON = {}
+
+    // listProdutosJSON.produtos = listaProdutos
+    // listProdutosJSON.clientes = listaNomes
+
+    // console.log(listProdutosJSON)
+    // console.log(listProdutosJSON.produtos)
+
+    let listProdutosJSON = {}
+    let listProdutosArray = [
+        { nome: 'Monitor', quantidade: 300, marca: 'DELL', valor: 1000, descricao: 'monitor DELL qualquer coisa', codigo: 100 },
+        { nome: 'Monitor', quantidade: 300, marca: 'LG', valor: 1000, descricao: 'monitor DELL qualquer coisa', codigo: 101 },
+        { nome: 'Teclado', quantidade: 360, marca: 'LG', valor: 230, descricao: 'teclado LG qualquer coisa', codigo: 102 },
+        { nome: 'Teclado', quantidade: 800, marca: 'LG', valor: 300, descricao: ' teclado DELL qualquer coisa', codigo: 103 },
+        { nome: 'Mouse', quantidade: 790, marca: 'DELL', valor: 115, descricao: 'mouse qualquer coisa', codigo: 104 },
+        { nome: 'Mouse', quantidade: 790, marca: 'DELL', valor: 115, descricao: 'mouse qualquer coisa', codigo: 105 },
+        { nome: 'Mouse', quantidade: 790, marca: 'RAZER', valor: 800, descricao: 'mouse qualquer coisa', codigo: 106 },
+        { nome: 'Teclado', quantidade: 80, marca: 'Logitech', valor: 120, descricao: 'mouse qualquer coisa', codigo: 107 },
+    ];
+
+    // adiciona array dentro de JSON
+
+    listProdutosJSON.produtos = listProdutosArray
+
+    // array cores 
+
+    let listCoresDellArray = ['Preto', 'Branco', 'Cinza']
+    let listCoresLgArray = ['Preto', 'Cinza']
+    let listCoresTecladoArray = ['Preto', 'Branco', 'Cinza', 'Rosa', 'Azul']
+    let listCoresMouseArray = ['Preto', 'Branco', 'Azul', 'Verde', 'Rosa', 'Amarelo', 'Vermelho', 'Roxo']
+
+    // array modelos
+
+    let listModelosMonitor = ['LCD', 'LED', 'OLED', '4K', 'IPS']
+    let listModelosTeclado = ['Mecanico', 'Semi-mecanico', 'Óptico']
+
+    // add modelos monitores
+    listProdutosJSON.produtos[0].modelo = listModelosMonitor
+    listProdutosJSON.produtos[1].modelo = listModelosMonitor
+
+    // add modelos aos mouses
+    listProdutosJSON.produtos[2].modelo = listModelosTeclado
+    listProdutosJSON.produtos[3].modelo = listModelosTeclado
+    listProdutosJSON.produtos[7].modelo = listModelosTeclado
+
+    // add cores ao produtos dell
+    listProdutosJSON.produtos[0].cores = listCoresDellArray
+    listProdutosJSON.produtos[4].cores = listCoresDellArray
+    listProdutosJSON.produtos[5].cores = listCoresDellArray
+    // add cores ao monitor lg
+    listProdutosJSON.produtos[1].cores = listCoresLgArray
+
+    // add cores ao teclado 
+    listProdutosJSON.produtos[2].cores = listCoresTecladoArray
+    listProdutosJSON.produtos[3].cores = listCoresTecladoArray
+    listProdutosJSON.produtos[7].cores = listCoresTecladoArray
+
+    // add ao mouse
+
+    listProdutosJSON.produtos[6].cores = listCoresMouseArray
+
+    // console.table(listProdutosJSON.produtos)
+
+    // console.log('Nome: ', listProdutosJSON.produtos[1].nome);
+    // console.log('Marca: ', listProdutosJSON.produtos[1].marca);
+    // console.log('Valor: ', listProdutosJSON.produtos[1].valor)
+    // console.log('Cores : ', listProdutosJSON.produtos[1].cores[1])
+    // console.log('Modelo : ', listProdutosJSON.produtos[1].modelo[1])
+
+
+
+
+
+    console.log(listProdutosArray.length)
+
+    let cont = 0;
+    let quantidadeProdutos = listProdutosArray.length;
+
+
+    while (cont < quantidadeProdutos) {
+        //console.log(`O nome do aluno é: ${listaNomes[cont]}`)
+        console.log('Nome: ', listProdutosJSON.produtos[cont].nome)
+        console.log('Marca: ', listProdutosJSON.produtos[cont].marca)
+        console.log('Valor: ', listProdutosJSON.produtos[cont].valor)
+        //console.log('Cores: ', listProdutosJSON.produtos[cont].cores[cont])
+        //console.log('Modelo: ', listProdutosJSON.produtos[cont].modelo[cont])
+        let quantidadeCores = listProdutosJSON.produtos[cont].cores.length
+        let cores = listProdutosJSON.produtos[cont].cores
+        let contCores = 0
+        console.log('Cores:')
+        while (contCores < quantidadeCores) {
+            console.log(cores[contCores])
+            contCores += 1;
+        }
+        
+        let modelo = listProdutosJSON.produtos[cont].modelo
+        let indice = listProdutosJSON.produtos[cont].indexOf(modelo)
+
+
+        if (indice >= 0) {
+            let quantidadeModelo = listProdutosJSON.produtos[cont].modelo.length
+            let contModelo = 0
+            console.log('Modelo:')
+            while (contModelo < quantidadeModelo) {
+                console.log(modelo[contModelo])
+                contModelo += 1;
+            }
+
+        } else {
+            console.log('erro')
+        }
+
+
+        cont += 1;
+    }
+
+
+}
+
+
+
+// // Percorrer um array com FOREACH
+// console.log('Exemplo com FOREACH')
+// listaNomes.forEach(function (nome) {
+//     console.log('O nome do aluno é:', nome)
+// })
+
+//  Percorrer um array com for
+// console.log('Exemplo com for')
+// for (let cont = 0; cont < quantidadeItens; cont++)
+// console.log(`O nome do aluno é: ${listaNomes[cont]}`)
+
+
+listagemProdutos()
 
 //manipulandoDados()
 
