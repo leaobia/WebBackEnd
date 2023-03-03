@@ -22538,11 +22538,35 @@ const getDadosEstado = function (uf) {
    return listEstadosJSON
 }
 
+// função que mostra os dados da capital de um estado
+
+const getCapitalEstado = function(uf){
+   let uf2 = uf;
+   let nome;
+   let capital;
+   let listEstadosJSON = {}
+
+   estadosCidades.estados.forEach(function (estados2) {
+      uf2 = estados2.sigla
+      nome = estados2.nome
+      capital = estados2.capital
+      regiao = estados2.regiao
+
+      if (uf2 == uf) {
+
+         listEstadosJSON.uf = uf2
+         listEstadosJSON.descricao = nome
+         listEstadosJSON.capital = capital
+      }
+   })
+   return listEstadosJSON
+}
+
 // chamada das funções
 
 //console.log(getListaDeEstados())
-
-console.log(getDadosEstado('SP'))
+//console.log(getDadosEstado('SP'))
+console.log(getCapitalEstado('AC'))
 
 
 
