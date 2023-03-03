@@ -22535,7 +22535,11 @@ const getDadosEstado = function (uf) {
          
       }
    })
-   return listEstadosJSON
+   if(listEstadosJSON == undefined){
+      return false
+   }else{
+      return listEstadosJSON
+   }
 }
 
 // função que mostra os dados da capital de um estado
@@ -22559,14 +22563,33 @@ const getCapitalEstado = function(uf){
          listEstadosJSON.capital = capital
       }
    })
-   return listEstadosJSON
+   if(listEstadosJSON == undefined){
+      return false
+   }else{
+      return listEstadosJSON
+   }
+}
+
+// função que mostra os estados de uma região 
+
+const getEstadosRegiao = function(regiao){
+   let regiao2 = regiao.toUpperCase();
+   let listEstadosJSON = {};
+   let estados = [];
+   let uf;
+   let nome;
+   estadosCidades.estados.forEach(function (estados2) {
+      regiao2 = estados2.regiao
+      listEstadosJSON.regiao = regiao2
+      console.log(listEstadosJSON)
+   })
 }
 
 // chamada das funções
 
 //console.log(getListaDeEstados())
 //console.log(getDadosEstado('SP'))
-console.log(getCapitalEstado('AC'))
+//console.log(getCapitalEstado('AC'))
 
 
 
