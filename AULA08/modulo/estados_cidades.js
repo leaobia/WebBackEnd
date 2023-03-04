@@ -22576,28 +22576,47 @@ const getEstadosRegiao = function (regiao) {
    let regiao2 = regiao.toUpperCase();
    let estados = [];
    let listEstadosJSON = {};
- 
+
    const estadosRegiao = estadosCidades.estados.filter(function (estado) {
-     return estado.regiao.toUpperCase() == regiao2;
+      return estado.regiao.toUpperCase() == regiao2;
    });
- 
+
    estados = estadosRegiao.map(function (estado) {
-     return {
-       uf: estado.sigla,
-       descricao: estado.nome
-     };
-   
+      return {
+         uf: estado.sigla,
+         descricao: estado.nome
+      };
+
    });
    listEstadosJSON.regiao = regiao2;
    listEstadosJSON.estados = estados;
-   
-   if(listEstadosJSON == undefined){
+
+   if (listEstadosJSON == undefined) {
       return false
-   }else{
+   } else {
       return listEstadosJSON
    }
-   
+
 }
+
+//a função que retorna as informações referente aos estados que formam a capital do Brasil
+
+const getCapitalPais = function () {
+   let capitaisJSON = {}
+   let capitais = estadosCidades.estados
+      .filter(estado => estado.capital_pais != undefined)
+      .map(estado => ({
+         uf: estado.sigla,
+         descricao: estado.nome,
+         capital: estado.capital,
+         regiao: estado.regiao,
+         capital_pais_ano_inicio: estado.capital_pais.ano_inicio,
+         capital_pais_ano_termino: estado.capital_pais.ano_fim,
+         capital_atual: estado.capital_pais.capital
+      }));
+   capitaisJSON.capitais = capitais
+   return capitaisJSON;
+};
 
 
 // chamada das funções
@@ -22605,7 +22624,8 @@ const getEstadosRegiao = function (regiao) {
 //console.log(getListaDeEstados())
 //console.log(getDadosEstado('SP'))
 //console.log(getCapitalEstado('AC'))
-console.log(getEstadosRegiao('sul'))
+//console.log(getEstadosRegiao('sul'))
+//console.log(getCapitalPais())
 
 
 
