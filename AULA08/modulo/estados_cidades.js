@@ -22532,19 +22532,19 @@ const getDadosEstado = function (uf) {
          listEstadosJSON.descricao = nome
          listEstadosJSON.capital = capital
          listEstadosJSON.regiao = regiao
-         
+
       }
    })
-   if(listEstadosJSON == undefined){
+   if (listEstadosJSON == undefined) {
       return false
-   }else{
+   } else {
       return listEstadosJSON
    }
 }
 
 // função que mostra os dados da capital de um estado
 
-const getCapitalEstado = function(uf){
+const getCapitalEstado = function (uf) {
    let uf2 = uf;
    let nome;
    let capital;
@@ -22563,33 +22563,49 @@ const getCapitalEstado = function(uf){
          listEstadosJSON.capital = capital
       }
    })
-   if(listEstadosJSON == undefined){
+   if (listEstadosJSON == undefined) {
       return false
-   }else{
+   } else {
       return listEstadosJSON
    }
 }
 
 // função que mostra os estados de uma região 
 
-const getEstadosRegiao = function(regiao){
+const getEstadosRegiao = function (regiao) {
    let regiao2 = regiao.toUpperCase();
-   let listEstadosJSON = {};
    let estados = [];
-   let uf;
-   let nome;
-   estadosCidades.estados.forEach(function (estados2) {
-      regiao2 = estados2.regiao
-      listEstadosJSON.regiao = regiao2
-      console.log(listEstadosJSON)
-   })
+   let listEstadosJSON = {};
+ 
+   const estadosRegiao = estadosCidades.estados.filter(function (estado) {
+     return estado.regiao.toUpperCase() == regiao2;
+   });
+ 
+   estados = estadosRegiao.map(function (estado) {
+     return {
+       uf: estado.sigla,
+       descricao: estado.nome
+     };
+   
+   });
+   listEstadosJSON.regiao = regiao2;
+   listEstadosJSON.estados = estados;
+   
+   if(listEstadosJSON == undefined){
+      return false
+   }else{
+      return listEstadosJSON
+   }
+   
 }
+
 
 // chamada das funções
 
 //console.log(getListaDeEstados())
 //console.log(getDadosEstado('SP'))
 //console.log(getCapitalEstado('AC'))
+console.log(getEstadosRegiao('sul'))
 
 
 
