@@ -22618,6 +22618,43 @@ const getCapitalPais = function () {
    return capitaisJSON;
 };
 
+const getCidades = function (uf) {
+   let uf2 = uf;
+   let nome;
+   let cidades = []
+   let listEstadosJSON = {}
+
+   estadosCidades.estados.forEach(function (estados2) {
+      uf2 = estados2.sigla
+      nome = estados2.nome
+
+
+      estados2.cidades.forEach(function (cidades2) {
+
+
+         if (uf2 == uf) {
+            let cidadesNome = cidades2.nome
+            cidades.push(cidadesNome)
+            let quantCidades = cidades.length
+
+            listEstadosJSON.uf = uf2
+            listEstadosJSON.descricao = nome
+            listEstadosJSON.quantidade_cidades = quantCidades
+            listEstadosJSON.cidades = cidades
+
+         }
+
+      })
+
+   })
+
+   if (listEstadosJSON == undefined) {
+      return false
+   } else {
+      return listEstadosJSON
+   }
+}
+
 
 // chamada das funções
 
@@ -22626,6 +22663,7 @@ const getCapitalPais = function () {
 //console.log(getCapitalEstado('AC'))
 //console.log(getEstadosRegiao('sul'))
 //console.log(getCapitalPais())
+//console.log(getCidades('AC'))
 
 
 
