@@ -22658,7 +22658,7 @@ const getCidades = function (uf) {
 
 // chamada das funções
 
-// console.log(getListaDeEstados())
+//console.log(getListaDeEstados())
 //console.log(getDadosEstado('SP'))
 //console.log(getCapitalEstado('AC'))
 //console.log(getEstadosRegiao('sul'))
@@ -22667,3 +22667,11 @@ const getCidades = function (uf) {
 
 
 
+module.exports = {
+   getListaDeEstados, 
+   getEstadosRegiao,
+   getDadosEstado,
+   getCidades,
+   getCapitalPais,
+   getCapitalEstado
+}
