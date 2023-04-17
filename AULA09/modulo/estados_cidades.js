@@ -22600,8 +22600,6 @@ const getEstadosRegiao = function (regiao) {
       listEstadosJSON.estados = estados;
       return listEstadosJSON
    }
-
-   
 }
 
 //a função que retorna as informações referente aos estados que formam a capital do Brasil
@@ -22667,7 +22665,7 @@ const getCidades = function (uf) {
 //console.log(getListaDeEstados())
 //console.log(getDadosEstado('SP'))
 //console.log(getCapitalEstado('AC'))
-console.log(getEstadosRegiao('sul'))
+//console.log(getEstadosRegiao('sul'))
 //console.log(getCapitalPais())
 //console.log(getCidades('AC'))
 
