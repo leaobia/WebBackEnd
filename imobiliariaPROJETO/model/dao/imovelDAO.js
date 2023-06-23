@@ -1,3 +1,11 @@
+/**************************************************************************************
+ * Objetivo: Responsável pela manipulação de dados dos imóveis no Banco de Dados.
+ * Data: 21/06/2023
+ * Auto: Bianca Leão
+ * Versão: 1.0
+ **************************************************************************************/
+
+
 //Retorna todos os imoveis.
 const selectAllImoveis = async function () {
 

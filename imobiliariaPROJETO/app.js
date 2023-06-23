@@ -1,3 +1,10 @@
+/*************************************************************************************
+ * Objetivo: API para retornar dados de uma imobiliária fícticia
+ * Autor: Bianca Leão
+ * Data: 21/06/2023
+ * Versão: 1.0
+ *************************************************************************************/
+
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -13,7 +20,6 @@ app.use((request, response, next) => {
 
     next()
 })
-
 
 
 //Endpoint: Retorna todos os dados de imoveis
