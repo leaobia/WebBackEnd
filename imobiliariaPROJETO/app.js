@@ -28,10 +28,10 @@ app.get('/v1/minha-imobiliaria/imoveis', cors(), async function (request, respon
     let dadosImovel = await controllerImovel.getImoveis();
     if (dadosImovel) {
         response.json(dadosImovel)
-        response.status(200)
+        response.status(dadosImovel.status)
     } else {
         response.json()
-        response.status(404);
+        response.status(dadosImovel.status);
     }
 })
 

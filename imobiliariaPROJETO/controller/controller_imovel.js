@@ -5,6 +5,9 @@
  * Versão: 1.0
  **************************************************************************************/
 
+var message = require('./modulo/config.js')
+
+
 //Retorna todos os imoveis.
 const getImoveis = async function () {
     let dadosImovelJson = {}
@@ -13,14 +16,18 @@ const getImoveis = async function () {
     let dadosImovel = await imovelDAO.selectAllImoveis()
 
     if (dadosImovel) {
+  
+        dadosImovelJson.status = message.SUCCESS_GET_PROPERTY.status
+        dadosImovelJson.message = message.SUCCESS_GET_PROPERTY.message
         dadosImovelJson.quantidade = dadosImovel.length
         dadosImovelJson.imoveis = dadosImovel
         return dadosImovelJson
     } else {
-        return false
+        return message.ERROR_PROPERTY_NOT_FOUND
     }
 
 }
+
 
 
 module.exports = {
