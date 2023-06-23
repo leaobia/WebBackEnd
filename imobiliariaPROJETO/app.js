@@ -9,6 +9,9 @@ const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+
+var message = require('./controller/modulo/config.js')
+
 const app = express()
 
 app.use((request, response, next) => {
@@ -30,8 +33,8 @@ app.get('/v1/minha-imobiliaria/imoveis', cors(), async function (request, respon
         response.json(dadosImovel)
         response.status(dadosImovel.status)
     } else {
-        response.json()
-        response.status(dadosImovel.status);
+        response.json(message.ERROR_INVALID_CONTENT_TYPE)
+        response.status(message.ERROR_INVALID_CONTENT_TYPE.status);
     }
 })
 

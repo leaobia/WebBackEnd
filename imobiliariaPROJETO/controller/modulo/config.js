@@ -15,6 +15,8 @@ const ERROR_PROPERTY_NOT_FOUND = {status: 404,message: 'Imóvel não encontrado.
   
 const ERROR_INTERNAL_SERVER = {status: 500,message: 'Ocorreu um erro interno no servidor. Por favor, tente novamente mais tarde.'};
 
+const ERROR_INVALID_CONTENT_TYPE = {status: 415, message: 'O TIPO DE MÍDIA CONTENT-TYPE DA SOLICITAÇÃO NÃO É COMPATÍVEL COM O SERVIDOR. TIPO ACEITÁVEL: [application/json]'}
+
 /*******************MENSAGENS DE SUCESSO*********************/
 
 const SUCCESS_LOGIN = {status: 200,message: 'Login realizado com sucesso.'};
@@ -32,6 +34,7 @@ module.exports = {
     ERROR_UNAUTHORIZED_ACCESS,
     ERROR_PROPERTY_NOT_FOUND,
     ERROR_INTERNAL_SERVER,
+    ERROR_INVALID_CONTENT_TYPE,
     SUCCESS_LOGIN,
     SUCCESS_PROPERTY_CREATED,
     SUCCESS_PROPERTY_UPDATED,
